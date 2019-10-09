@@ -50,16 +50,18 @@ vector <double> *getarr(const string filename)
 	};
 	for_each(it, end, x);
 	a.close();
+	auto y = [](auto a, auto b) {return std::inner_product(a.begin(), a.end(), a.begin(), 0) < std::inner_product(b.begin(), b.end(), b.begin(), 0); };
+	sort(&b[0], &b[n], y);
 	return b;
 }
 
-//int Md::getMin() const {
-//	return arr[0];
-//}
-//
-//int Md::getMax()const {
-//	return arr[n - 1];
-//}
+vector <double> Md::getMin() const {
+	return arr[0];
+}
+
+vector <double> Md::getMax()const {
+	return arr[n - 1];
+}
 
 int getn(const string filename)
 {
@@ -95,15 +97,17 @@ Md::Md(const string filename) :arr(getarr(filename)), n(getn(filename)) {}
 //	return 1.0*a / n - midle()*midle();
 //}
 //
-//double Md::midle() const
-//{
-//	int m = std::accumulate(arr.begin(), arr.end(), 0);
-//	return 1.0*m / n;
-//}
+double Md::midle() const
+{
+	auto x = [](double a, auto b) {double k = sqrt(std::inner_product(b.begin(), b.end(), b.begin(), 0)); return a + k; };
+	double m = std::accumulate(&arr[0], &arr[n],0.0, x);//???????????как-то получаются инты
+	return m / n;
+}
 
 void Md::print() const {
 	int i = 1;
-	auto x = [](auto t) {cout << t;};
+	auto x = [](auto t) {cout << t<<" ";};
+	cout << "v poradce vozrastania:" << endl;
 	auto y = [&x, &i](auto u) {cout << "arr"<<i<<": "; for_each(u.begin(), u.end(), x); cout << endl; i++; };
 	for_each(&arr[0], &arr[n], y);
 }
