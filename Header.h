@@ -13,9 +13,9 @@ public:
 	~Md();
 	Md(const std::string filename);
 	double midle() const;
-	//double midsq() const;
+	double midsq() const;
 	void print() const;
-	//size_t countLarger(const int)const;
+	size_t countLarger(const int)const;
 };
 
-//bool geterror(const std::string filename);
+bool geterror(const std::string filename);
