@@ -13,7 +13,7 @@ int main()
 {
 	std::string filename = "data.txt";
 	int comparison = 5;
-	if (geterror(filename))
+	if (Md::geterror(filename))
 	{
 		const Md a(filename);
 		a.print();

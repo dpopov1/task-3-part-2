@@ -7,6 +7,7 @@ class Md
 	int n;
 
 public:
+	static bool geterror(const std::string filename);
 	std::vector<double> getMax() const;
 	std::vector<double> getMin() const;
 	int size() const;
@@ -17,5 +18,3 @@ public:
 	void print() const;
 	size_t countLarger(const int)const;
 };
-
-bool geterror(const std::string filename);

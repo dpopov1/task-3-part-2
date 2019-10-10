@@ -127,7 +127,7 @@ size_t Md::countLarger(const int a) const
 	return std::count_if(&arr[0], &arr[n], x);
 }
 
-bool geterror(const string filename)
+bool Md:: geterror(const string filename)
 {
 	bool error = 1;
 	try {
